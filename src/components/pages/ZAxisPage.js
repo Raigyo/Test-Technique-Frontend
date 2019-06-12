@@ -13,6 +13,7 @@ import SelectedFast from '../../assets/SelectedFast_svg';
 import SelectedNormal from '../../assets/SelectedNormal_svg';
 import SelectedSlow from '../../assets/SelectedSlow_svg';
 import Page from '../common/Page';
+import Home from '../../assets/previous_svg';
 
 export default (props) => {
   const styleBody = css({
@@ -24,7 +25,8 @@ export default (props) => {
   return (
     <Page>
       <Page.Header>
-        Move
+        Z Axis
+        <Page.LeftButton icon={<Home/>} to='/control'/>
       </Page.Header>
       <Page.Body className={styleBody}>
         <SelectedFast/><ButtonFast/>
