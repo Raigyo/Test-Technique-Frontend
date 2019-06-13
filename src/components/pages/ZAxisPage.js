@@ -16,6 +16,7 @@ import Page from '../common/Page';
 import Home from '../../assets/previous_svg';
 
 export default (props) => {
+
   const styleBody = css({
     display: 'grid!important',
     gridTemplateColumns: '1fr 1fr 1fr 1fr 1fr',
@@ -34,13 +35,20 @@ export default (props) => {
   const emptyRight = css({gridArea: 'empty-right'});
   const slider = css({gridArea: 'slider'});
 
-  const [isSelected, setBtnID] = useState(false);
+  /*let isSelectedOne = false;
+  let isSelectedTwo = false;
+  let isSelectedThree = false;*/
+
+
+
+  //const [isSelected, setBtnID] = useState();
 
   // Hook: Similar to componentDidMount and componentDidUpdate:
-  useEffect(() => {
-    // Update the document title using the browser API
-    console.log(isSelected);
-  });
+  const [isSelected, setBtnID] = useState(0);
+
+  /*function setBtnID(isSelected) {
+    return isSelected;
+  };*/
 
   return (
     <Page>
@@ -52,9 +60,9 @@ export default (props) => {
         <div className={emptyLeft}>empty-left</div>
         <div className={layout1}>layout1</div>
         <div className={speed}>
-          {isSelected ? (<div><SelectedFast/></div>) : (<div onClick={() => setBtnID("ButtonFast: true")}><ButtonFast/></div>)}
-          {isSelected ? (<div><SelectedSlow/></div>) : (<div onClick={() => setBtnID("ButtonFast: true")}><ButtonSlow/></div>)}
-          {isSelected ? (<div><SelectedNormal/></div>) : (<div onClick={() => setBtnID("ButtonFast: true")}><ButtonNormal/></div>)}
+          {isSelected==1 ? (<div><SelectedFast/></div>) : (<div onClick={() => setBtnID(1)}><ButtonFast/></div>)}
+          {isSelected==2  ? (<div><SelectedNormal/></div>) : (<div onClick={() => setBtnID(2)}><ButtonNormal/></div>)}
+          {isSelected==3  ? (<div><SelectedSlow/></div>) : (<div onClick={() => setBtnID(3)}><ButtonSlow/></div>)}
         </div>
         <div className={controls}><ButtonUP/><ButtonDown/></div>
         <div className={rotation}><ButtonStopHover/><ButtonStartPosition/></div>
