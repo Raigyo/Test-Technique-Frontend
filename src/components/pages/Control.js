@@ -39,7 +39,7 @@ export default () => {
     <Page>
       <Page.Header>
         Control
-        <Page.LeftButton icon={<Home/>} to='/'/>
+        <Page.LeftButton icon={<Home/>} to='/' onClick={() => console.log('Home')}/>
       </Page.Header>
       <Page.Body>
         <div className={styleBody}>

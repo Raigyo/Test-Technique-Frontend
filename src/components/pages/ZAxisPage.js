@@ -35,26 +35,14 @@ export default (props) => {
   const emptyRight = css({gridArea: 'empty-right'});
   const slider = css({gridArea: 'slider'});
 
-  /*let isSelectedOne = false;
-  let isSelectedTwo = false;
-  let isSelectedThree = false;*/
-
-
-
-  //const [isSelected, setBtnID] = useState();
-
   // Hook: Similar to componentDidMount and componentDidUpdate:
   const [isSelected, setBtnID] = useState(0);
-
-  /*function setBtnID(isSelected) {
-    return isSelected;
-  };*/
 
   return (
     <Page>
     <Page.Header>
       Z Axis
-      <Page.LeftButton icon={<Home/>} to='/control'/>
+      <Page.LeftButton icon={<Home/>} to='/control' onClick={() => console.log('Home')}/>
     </Page.Header>
     <Page.Body className={styleBody}>
         <div className={emptyLeft}>empty-left</div>
