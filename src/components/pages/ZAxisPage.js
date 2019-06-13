@@ -36,7 +36,9 @@ export default (props) => {
   const slider = css({gridArea: 'slider'});
 
   // Hook: Similar to componentDidMount and componentDidUpdate, used to rerender toggle icons
-  const [isSelected, setBtnID] = useState(0);
+  const [isSelected, setBtnIdRadio] = useState(0);
+  const [btnId, setBtnIdOver] = useState(0);
+
 
   return (
     <Page>
@@ -49,17 +51,17 @@ export default (props) => {
         <div className={layout1}>layout1</div>
         {/*Conditional Ternary Operator Rendering*/}
         <div className={speed}>
-          {isSelected==1 ? (<div><SelectedFast/></div>) : (<div onClick={() => setBtnID(1)}><ButtonFast/></div>)}
-          {isSelected==2  ? (<div><SelectedNormal/></div>) : (<div onClick={() => setBtnID(2)}><ButtonNormal/></div>)}
-          {isSelected==3  ? (<div><SelectedSlow/></div>) : (<div onClick={() => setBtnID(3)}><ButtonSlow/></div>)}
+          {isSelected==1 ? (<div><SelectedFast/></div>) : (<div onClick={() => setBtnIdRadio(1)}><ButtonFast/></div>)}
+          {isSelected==2 ? (<div><SelectedNormal/></div>) : (<div onClick={() => setBtnIdRadio(2)}><ButtonNormal/></div>)}
+          {isSelected==3 ? (<div><SelectedSlow/></div>) : (<div onClick={() => setBtnIdRadio(3)}><ButtonSlow/></div>)}
         </div>
         <div className={controls}>
           <div><ButtonUP/></div>
           <div><ButtonDown/></div>
         </div>
         <div className={rotation}>
-          <div onClick={() => console.log('!stop!')}><ButtonStopHover/></div>
-          <div onClick={() => console.log('home')}><ButtonStartPosition/></div>
+          {btnId ? (<div onMouseOut={() => setBtnIdOver(1)}><ButtonStopHover/></div>) : (<div onClick={() => console.log('!stop!')} onMouseOver={() => setBtnIdOver(1)}><ButtonStop/></div>)}
+          {btnId ? (<div onMouseOut={() => setBtnIdOver(2)}><ButtonStartPositionHover/></div>) : (<div onClick={() => console.log('home')} onMouseOver={() => setBtnIdOver(2)}><ButtonStartPosition/></div>)}
         </div>
         <div className={emptyRight}>empty-right</div>
         <div className={slider}>slider</div>
