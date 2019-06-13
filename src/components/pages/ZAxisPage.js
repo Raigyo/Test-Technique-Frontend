@@ -15,16 +15,43 @@ import SelectedSlow from '../../assets/SelectedSlow_svg';
 import Page from '../common/Page';
 import Home from '../../assets/previous_svg';
 
+
 export default (props) => {
   const styleBody = css({
+    display: 'grid!important',
+    gridTemplateColumns: '1fr 1fr 1fr 1fr 1fr',
+    gridTemplateRows: '0.8fr 1.2fr 1fr',
+    gridTemplateAreas: "'layout1 layout1 layout1 layout1 layout1' 'empty-left speed controls rotation empty-right' 'slider slider slider slider slider'",
+    border: '1px solid',
     svg: {
       height: '30px'
     }
   });
+  const emptyLeft  = css({gridArea: 'empty-left'});
+  const layout1 = css({gridArea: 'layout1'});
+  const speed  = css({gridArea: 'speed'});
+  const controls = css({gridArea: 'controls'});
+  const rotation = css({gridArea: 'rotation'});
+  const emptyRight = css({gridArea: 'empty-right'});
+  const slider = css({gridArea: 'slider'});
 
   return (
     <Page>
-      <Page.Header>
+    <Page.Header>
+      Z Axis
+      <Page.LeftButton icon={<Home/>} to='/control'/>
+    </Page.Header>
+    <Page.Body className={styleBody}>
+        <div className={emptyLeft}>empty-left</div>
+        <div className={layout1}>layout1</div>
+        <div className={speed}>speed</div>
+        <div className={controls}>controls</div>
+        <div className={rotation}>rotation</div>
+        <div className={emptyRight}>empty-right</div>
+        <div className={slider}>slider</div>
+    </Page.Body>
+
+      {/*<Page.Header>
         Z Axis
         <Page.LeftButton icon={<Home/>} to='/control'/>
       </Page.Header>
@@ -38,7 +65,7 @@ export default (props) => {
         <ButtonStopHover/>
         <ButtonStartPosition/>
         <ButtonStartPositionHover/>
-      </Page.Body>
+      </Page.Body>*/}
     </Page>
   );
 };
