@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect }  from 'react';
 import {css} from 'emotion';
 import ButtonFast from '../../assets/ButtonFast_svg';
 import ButtonNormal from '../../assets/ButtonNormal_svg';
@@ -14,7 +14,6 @@ import SelectedNormal from '../../assets/SelectedNormal_svg';
 import SelectedSlow from '../../assets/SelectedSlow_svg';
 import Page from '../common/Page';
 import Home from '../../assets/previous_svg';
-
 
 export default (props) => {
   const styleBody = css({
@@ -35,6 +34,14 @@ export default (props) => {
   const emptyRight = css({gridArea: 'empty-right'});
   const slider = css({gridArea: 'slider'});
 
+  const [isSelected, setBtnID] = useState(false);
+
+  // Hook: Similar to componentDidMount and componentDidUpdate:
+  useEffect(() => {
+    // Update the document title using the browser API
+    console.log(isSelected);
+  });
+
   return (
     <Page>
     <Page.Header>
@@ -44,9 +51,13 @@ export default (props) => {
     <Page.Body className={styleBody}>
         <div className={emptyLeft}>empty-left</div>
         <div className={layout1}>layout1</div>
-        <div className={speed}>speed</div>
-        <div className={controls}>controls</div>
-        <div className={rotation}>rotation</div>
+        <div className={speed}>
+          {isSelected ? (<div><SelectedFast/></div>) : (<div onClick={() => setBtnID("ButtonFast: true")}><ButtonFast/></div>)}
+          {isSelected ? (<div><SelectedSlow/></div>) : (<div onClick={() => setBtnID("ButtonFast: true")}><ButtonSlow/></div>)}
+          {isSelected ? (<div><SelectedNormal/></div>) : (<div onClick={() => setBtnID("ButtonFast: true")}><ButtonNormal/></div>)}
+        </div>
+        <div className={controls}><ButtonUP/><ButtonDown/></div>
+        <div className={rotation}><ButtonStopHover/><ButtonStartPosition/></div>
         <div className={emptyRight}>empty-right</div>
         <div className={slider}>slider</div>
     </Page.Body>
