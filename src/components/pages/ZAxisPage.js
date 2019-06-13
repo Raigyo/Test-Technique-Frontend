@@ -1,4 +1,4 @@
-import React, { useState, useEffect }  from 'react';
+import React, { useState }  from 'react';
 import {css} from 'emotion';
 import ButtonFast from '../../assets/ButtonFast_svg';
 import ButtonNormal from '../../assets/ButtonNormal_svg';
@@ -35,25 +35,32 @@ export default (props) => {
   const emptyRight = css({gridArea: 'empty-right'});
   const slider = css({gridArea: 'slider'});
 
-  // Hook: Similar to componentDidMount and componentDidUpdate:
+  // Hook: Similar to componentDidMount and componentDidUpdate, used to rerender toggle icons
   const [isSelected, setBtnID] = useState(0);
 
   return (
     <Page>
     <Page.Header>
       Z Axis
-      <Page.LeftButton icon={<Home/>} to='/control' onClick={() => console.log('Home')}/>
+      <Page.LeftButton icon={<Home/>} to='/control'/>
     </Page.Header>
     <Page.Body className={styleBody}>
         <div className={emptyLeft}>empty-left</div>
         <div className={layout1}>layout1</div>
+        {/*Conditional Ternary Operator Rendering*/}
         <div className={speed}>
           {isSelected==1 ? (<div><SelectedFast/></div>) : (<div onClick={() => setBtnID(1)}><ButtonFast/></div>)}
           {isSelected==2  ? (<div><SelectedNormal/></div>) : (<div onClick={() => setBtnID(2)}><ButtonNormal/></div>)}
           {isSelected==3  ? (<div><SelectedSlow/></div>) : (<div onClick={() => setBtnID(3)}><ButtonSlow/></div>)}
         </div>
-        <div className={controls}><ButtonUP/><ButtonDown/></div>
-        <div className={rotation}><ButtonStopHover/><ButtonStartPosition/></div>
+        <div className={controls}>
+          <div><ButtonUP/></div>
+          <div><ButtonDown/></div>
+        </div>
+        <div className={rotation}>
+          <div onClick={() => console.log('!stop!')}><ButtonStopHover/></div>
+          <div onClick={() => console.log('home')}><ButtonStartPosition/></div>
+        </div>
         <div className={emptyRight}>empty-right</div>
         <div className={slider}>slider</div>
     </Page.Body>
