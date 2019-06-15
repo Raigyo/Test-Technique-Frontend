@@ -18,23 +18,25 @@ import Home from '../../assets/previous_svg';
 export default (props) => {
 
   const styleBody = css({
-    display: 'grid!important',
-    gridTemplateColumns: '1fr 1fr 1fr 1fr 1fr',
-    gridTemplateRows: '0.8fr 1.2fr 1fr',
-    gridTemplateAreas: "'layout1 layout1 layout1 layout1 layout1' 'empty-left speed controls rotation empty-right' 'slider slider slider slider slider'",
-    border: '1px solid',
     svg: {
-      height: '30px'
+      width: '100%',
+      height: '100%'
     }
   });
-  const emptyLeft  = css({gridArea: 'empty-left'});
-  const layout1 = css({gridArea: 'layout1'});
-  const speed  = css({gridArea: 'speed'});
-  const controls = css({gridArea: 'controls'});
-  const rotation = css({gridArea: 'rotation'});
-  const emptyRight = css({gridArea: 'empty-right'});
-  const slider = css({gridArea: 'slider'});
-
+  const blockCenter = css({
+    display: 'flex',
+  	margin: 'auto',
+    alignItems: 'center',
+    justifyContent: 'center',
+    height: '120px'
+  });
+  const blockSpeed = css({height: '120px'});
+  const blockRotate = css({height: '120px'});
+  const blockOtherControls = css({height: '120px'});
+  const btnControlSpeed = css({width: '47px', height: '40px'});
+  const btnArrows = css({width: '13px'});
+  const btnArrowsFrameTop = css({width: '112px', height: '47px', backgroundColor: '#445A64', borderRadius: '10% 10% 0 0', padding: '10px 0 0 0'});
+  const btnArrowsFrameBottom = css({width: '112px', height: '47px', backgroundColor: '#445A64', borderRadius: '0 0 10% 10%', padding: '0 0 1px 0'});
   // Hook: Similar to componentDidMount and componentDidUpdate, used to rerender toggle icons
   const [isSelected, setBtnIdRadio] = useState(0);
   const [btnId, setBtnIdOver] = useState(0);
@@ -47,24 +49,22 @@ export default (props) => {
       <Page.LeftButton icon={<Home/>} to='/control'/>
     </Page.Header>
     <Page.Body className={styleBody}>
-        <div className={emptyLeft}>empty-left</div>
-        <div className={layout1}>layout1</div>
         {/*Conditional Ternary Operator Rendering*/}
-        <div className={speed}>
-          {isSelected==1 ? (<div><SelectedFast/></div>) : (<div onClick={() => setBtnIdRadio(1)}><ButtonFast/></div>)}
-          {isSelected==2 ? (<div><SelectedNormal/></div>) : (<div onClick={() => setBtnIdRadio(2)}><ButtonNormal/></div>)}
-          {isSelected==3 ? (<div><SelectedSlow/></div>) : (<div onClick={() => setBtnIdRadio(3)}><ButtonSlow/></div>)}
+      <div className={blockCenter}>
+        <div className={blockSpeed}>
+          {isSelected==1 ? (<div className={btnControlSpeed}><SelectedFast/></div>) : (<div className={btnControlSpeed} onClick={() => setBtnIdRadio(1)}><ButtonFast/></div>)}
+          {isSelected==2 ? (<div className={btnControlSpeed}><SelectedNormal/></div>) : (<div className={btnControlSpeed} onClick={() => setBtnIdRadio(2)}><ButtonNormal/></div>)}
+          {isSelected==3 ? (<div className={btnControlSpeed}><SelectedSlow/></div>) : (<div className={btnControlSpeed} onClick={() => setBtnIdRadio(3)}><ButtonSlow/></div>)}
         </div>
-        <div className={controls}>
-          <div><ButtonUP/></div>
-          <div><ButtonDown/></div>
+        <div className={blockRotate}>
+          <div className={btnArrowsFrameTop}><div className={btnArrows}><ButtonUP/></div></div>
+          <div className={btnArrowsFrameBottom}><div className={btnArrows}><ButtonDown/></div></div>
         </div>
-        <div className={rotation}>
-          {btnId ? (<div onMouseOut={() => setBtnIdOver(1)}><ButtonStopHover/></div>) : (<div onClick={() => console.log('!stop!')} onMouseOver={() => setBtnIdOver(1)}><ButtonStop/></div>)}
-          {btnId ? (<div onMouseOut={() => setBtnIdOver(2)}><ButtonStartPositionHover/></div>) : (<div onClick={() => console.log('home')} onMouseOver={() => setBtnIdOver(2)}><ButtonStartPosition/></div>)}
+        <div className={blockOtherControls}>
+          {btnId ? (<div className={btnControlSpeed} onMouseOut={() => setBtnIdOver(1)}><ButtonStopHover/></div>) : (<div className={btnControlSpeed} onClick={() => console.log('!stop!')} onMouseOver={() => setBtnIdOver(1)}><ButtonStop/></div>)}
+          {btnId ? (<div className={btnControlSpeed} onMouseOut={() => setBtnIdOver(2)}><ButtonStartPositionHover/></div>) : (<div className={btnControlSpeed} onClick={() => console.log('home')} onMouseOver={() => setBtnIdOver(2)}><ButtonStartPosition/></div>)}
         </div>
-        <div className={emptyRight}>empty-right</div>
-        <div className={slider}>slider</div>
+      </div>
     </Page.Body>
 
       {/*<Page.Header>
