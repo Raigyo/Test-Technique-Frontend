@@ -89,8 +89,8 @@ export default (props) => {
 
   // Hook: Similar to componentDidMount and componentDidUpdate, used to rerender toggle icons
   const [isSelected, setBtnIdRadio] = useState(0);
-  const [btnId, setBtnIdOver] = useState(0);
-
+  const [btnId1Hover, setBtnIdOver1] = useState(false);
+  const [btnId2Hover, setBtnIdOver2] = useState(false);
 
   return (
     <Page>
@@ -111,8 +111,8 @@ export default (props) => {
             <div className={btnArrowsFrameBottom}><div className={btnArrows}><ButtonDown/></div></div>
           </div>
           <div className={blockOtherControls}>
-            {btnId ? (<div className={btnControl} onMouseOut={() => setBtnIdOver(1)}><ButtonStopHover/></div>) : (<div className={btnControl} onClick={() => console.log('!stop!')} onMouseOver={() => setBtnIdOver(1)}><ButtonStop/></div>)}
-            {btnId ? (<div className={btnControl, btnControlHome} onMouseOut={() => setBtnIdOver(2)}><ButtonStartPositionHover/></div>) : (<div className={btnControl, btnControlHome} onClick={() => console.log('home')} onMouseOver={() => setBtnIdOver(2)}><ButtonStartPosition/></div>)}
+            {btnId1Hover ? (<div className={btnControl} onMouseOut={() => setBtnIdOver1(false)}><ButtonStopHover/></div>) : (<div className={btnControl} onClick={() => console.log('!stop!')} onMouseOver={() => setBtnIdOver1(true)}><ButtonStop/></div>)}
+            {btnId2Hover ? (<div className={btnControl, btnControlHome} onMouseOut={() => setBtnIdOver2(false)}><ButtonStartPositionHover/></div>) : (<div className={btnControl, btnControlHome} onClick={() => console.log('home')} onMouseOver={() => setBtnIdOver2(true)}><ButtonStartPosition/></div>)}
           </div>
         </div>
         <div className="blockSlider">
