@@ -23,6 +23,7 @@ export default (props) => {
       height: '100%'
     }
   });
+  //Blocks with interactive buttons
   const blockCenter = css({
     display: 'flex',
   	margin: 'auto',
@@ -33,6 +34,7 @@ export default (props) => {
   const blockSpeed = css({height: '120px'});
   const blockRotate = css({height: '120px', margin: '23px 15px 0 15px'});
   const blockOtherControls = css({height: '120px', position: 'relative'});
+  //Control buttons
   const btnControl = css({width: '47px', height: '40px'});
   const btnControlHome = css({position: 'absolute', bottom: '0'});
   const btnArrows = css({width: '13px', margin: 'auto', display: 'inlineBlock', height: '100%', verticalAlign: 'middle'});
@@ -50,7 +52,7 @@ export default (props) => {
       <Page.LeftButton icon={<Home/>} to='/control'/>
     </Page.Header>
     <Page.Body className={styleBody}>
-        {/*Conditional Ternary Operator Rendering*/}
+        {/*Conditional Ternary Operator Rendering for toggle icons*/}
       <div className={blockCenter}>
         <div className={blockSpeed}>
           {isSelected==1 ? (<div className={btnControl}><SelectedFast/></div>) : (<div className={btnControl} onClick={() => setBtnIdRadio(1)}><ButtonFast/></div>)}
