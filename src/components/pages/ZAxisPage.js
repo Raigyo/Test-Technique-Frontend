@@ -111,8 +111,8 @@ export default (props) => {
             <div className={btnArrowsFrameBottom}><div className={btnArrows}><ButtonDown/></div></div>
           </div>
           <div className={blockOtherControls}>
-            {btnId1Hover ? (<div className={btnControl} onMouseOut={() => setBtnIdOver1(false)}><ButtonStopHover/></div>) : (<div className={btnControl} onClick={() => console.log('!stop!')} onMouseOver={() => setBtnIdOver1(true)}><ButtonStop/></div>)}
-            {btnId2Hover ? (<div className={btnControl, btnControlHome} onMouseOut={() => setBtnIdOver2(false)}><ButtonStartPositionHover/></div>) : (<div className={btnControl, btnControlHome} onClick={() => console.log('home')} onMouseOver={() => setBtnIdOver2(true)}><ButtonStartPosition/></div>)}
+            {btnId1Hover ? (<div className={btnControl} onMouseLeave={() => setBtnIdOver1(false)}><ButtonStopHover/></div>) : (<div className={btnControl} onClick={() => console.log('!stop!')} onMouseOver={() => setBtnIdOver1(true)}><ButtonStop/></div>)}
+            {btnId2Hover ? (<div className={btnControl, btnControlHome} onMouseLeave={() => setBtnIdOver2(false)}><ButtonStartPositionHover/></div>) : (<div className={btnControl, btnControlHome} onClick={() => console.log('home')} onMouseOver={() => setBtnIdOver2(true)}><ButtonStartPosition/></div>)}
           </div>
         </div>
         <div className="blockSlider">
