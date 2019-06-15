@@ -31,13 +31,13 @@ export default (props) => {
     height: '120px'
   });
   const blockSpeed = css({height: '120px'});
-  const blockRotate = css({height: '120px', margin: '0 15px 0 15px'});
+  const blockRotate = css({height: '120px', margin: '23px 15px 0 15px'});
   const blockOtherControls = css({height: '120px', position: 'relative'});
   const btnControl = css({width: '47px', height: '40px'});
   const btnControlHome = css({position: 'absolute', bottom: '0'});
   const btnArrows = css({width: '13px', margin: 'auto', display: 'inlineBlock', height: '100%', verticalAlign: 'middle'});
-  const btnArrowsFrameTop = css({width: '112px', height: '47px', backgroundColor: '#445A64', borderRadius: '10% 10% 0 0', margin: '10px 0 0 0'});
-  const btnArrowsFrameBottom = css({width: '112px', height: '47px', backgroundColor: '#445A64', borderRadius: '0 0 10% 10%', margin: '0 0 1px 0'});
+  const btnArrowsFrameTop = css({width: '112px', height: '47px', backgroundColor: '#445A64', borderRadius: '10% 10% 0 0', margin: '0 0 1px 0'});
+  const btnArrowsFrameBottom = css({width: '112px', height: '47px', backgroundColor: '#445A64', borderRadius: '0 0 10% 10%'});
   // Hook: Similar to componentDidMount and componentDidUpdate, used to rerender toggle icons
   const [isSelected, setBtnIdRadio] = useState(0);
   const [btnId, setBtnIdOver] = useState(0);
