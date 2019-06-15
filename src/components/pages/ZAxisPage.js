@@ -31,12 +31,13 @@ export default (props) => {
     height: '120px'
   });
   const blockSpeed = css({height: '120px'});
-  const blockRotate = css({height: '120px'});
-  const blockOtherControls = css({height: '120px'});
-  const btnControlSpeed = css({width: '47px', height: '40px'});
-  const btnArrows = css({width: '13px'});
-  const btnArrowsFrameTop = css({width: '112px', height: '47px', backgroundColor: '#445A64', borderRadius: '10% 10% 0 0', padding: '10px 0 0 0'});
-  const btnArrowsFrameBottom = css({width: '112px', height: '47px', backgroundColor: '#445A64', borderRadius: '0 0 10% 10%', padding: '0 0 1px 0'});
+  const blockRotate = css({height: '120px', margin: '0 15px 0 15px'});
+  const blockOtherControls = css({height: '120px', position: 'relative'});
+  const btnControl = css({width: '47px', height: '40px'});
+  const btnControlHome = css({position: 'absolute', bottom: '0'});
+  const btnArrows = css({width: '13px', margin: 'auto', display: 'inlineBlock', height: '100%', verticalAlign: 'middle'});
+  const btnArrowsFrameTop = css({width: '112px', height: '47px', backgroundColor: '#445A64', borderRadius: '10% 10% 0 0', margin: '10px 0 0 0'});
+  const btnArrowsFrameBottom = css({width: '112px', height: '47px', backgroundColor: '#445A64', borderRadius: '0 0 10% 10%', margin: '0 0 1px 0'});
   // Hook: Similar to componentDidMount and componentDidUpdate, used to rerender toggle icons
   const [isSelected, setBtnIdRadio] = useState(0);
   const [btnId, setBtnIdOver] = useState(0);
@@ -52,17 +53,17 @@ export default (props) => {
         {/*Conditional Ternary Operator Rendering*/}
       <div className={blockCenter}>
         <div className={blockSpeed}>
-          {isSelected==1 ? (<div className={btnControlSpeed}><SelectedFast/></div>) : (<div className={btnControlSpeed} onClick={() => setBtnIdRadio(1)}><ButtonFast/></div>)}
-          {isSelected==2 ? (<div className={btnControlSpeed}><SelectedNormal/></div>) : (<div className={btnControlSpeed} onClick={() => setBtnIdRadio(2)}><ButtonNormal/></div>)}
-          {isSelected==3 ? (<div className={btnControlSpeed}><SelectedSlow/></div>) : (<div className={btnControlSpeed} onClick={() => setBtnIdRadio(3)}><ButtonSlow/></div>)}
+          {isSelected==1 ? (<div className={btnControl}><SelectedFast/></div>) : (<div className={btnControl} onClick={() => setBtnIdRadio(1)}><ButtonFast/></div>)}
+          {isSelected==2 ? (<div className={btnControl}><SelectedNormal/></div>) : (<div className={btnControl} onClick={() => setBtnIdRadio(2)}><ButtonNormal/></div>)}
+          {isSelected==3 ? (<div className={btnControl}><SelectedSlow/></div>) : (<div className={btnControl} onClick={() => setBtnIdRadio(3)}><ButtonSlow/></div>)}
         </div>
         <div className={blockRotate}>
           <div className={btnArrowsFrameTop}><div className={btnArrows}><ButtonUP/></div></div>
           <div className={btnArrowsFrameBottom}><div className={btnArrows}><ButtonDown/></div></div>
         </div>
         <div className={blockOtherControls}>
-          {btnId ? (<div className={btnControlSpeed} onMouseOut={() => setBtnIdOver(1)}><ButtonStopHover/></div>) : (<div className={btnControlSpeed} onClick={() => console.log('!stop!')} onMouseOver={() => setBtnIdOver(1)}><ButtonStop/></div>)}
-          {btnId ? (<div className={btnControlSpeed} onMouseOut={() => setBtnIdOver(2)}><ButtonStartPositionHover/></div>) : (<div className={btnControlSpeed} onClick={() => console.log('home')} onMouseOver={() => setBtnIdOver(2)}><ButtonStartPosition/></div>)}
+          {btnId ? (<div className={btnControl} onMouseOut={() => setBtnIdOver(1)}><ButtonStopHover/></div>) : (<div className={btnControl} onClick={() => console.log('!stop!')} onMouseOver={() => setBtnIdOver(1)}><ButtonStop/></div>)}
+          {btnId ? (<div className={btnControl, btnControlHome} onMouseOut={() => setBtnIdOver(2)}><ButtonStartPositionHover/></div>) : (<div className={btnControl, btnControlHome} onClick={() => console.log('home')} onMouseOver={() => setBtnIdOver(2)}><ButtonStartPosition/></div>)}
         </div>
       </div>
     </Page.Body>
