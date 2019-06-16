@@ -17,6 +17,8 @@ import Home from '../../assets/previous_svg';
 
 export default (props) => {
 
+  //CSS and layout
+  //main
   const styleBody = css({
     svg: {
       width: '100%',
@@ -96,9 +98,10 @@ export default (props) => {
   //used to rerender hover icons
   const [btnStopHover, setBtnIdOver1] = useState(false);
   const [btnHomeHover, setBtnIdOver2] = useState(false);
-
+  //used to store slider value
   const [count, setCount] = useState(0.001);
 
+  //Functions
   //display data (speed+slider value) when we click on arrows
   const displayData = (ev)  => {
       switch(isSelected) {
@@ -112,9 +115,8 @@ export default (props) => {
           return console.log("No speed selected / Slider value: " + count);
       }
     };
-
+  //record slider value
   const onChange = (ev)  => {
-      //console.log(ev.target.value);
       setCount(ev.target.value);
     };
 
@@ -142,7 +144,7 @@ export default (props) => {
           </div>
         </div>
         <div className={blockSlider}>
-          <div className={textSlider}></div>
+          <div className={textSlider}>{count}</div>
           <input className={layoutSlider} onChange={onChange} type="range" min="0.001" defaultValue="0.001" max="50" step="0.001"/>
         </div>
       </Page.Body>
