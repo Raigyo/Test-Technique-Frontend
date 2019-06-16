@@ -97,7 +97,10 @@ export default (props) => {
   const [btnHomeHover, setBtnIdOver2] = useState(false);
 
 
-
+  const onChange = (ev)  => {
+      //setText(ev.target.value);
+      console.log(ev.target.value);
+    };
 
   return (
     <Page>
@@ -124,7 +127,7 @@ export default (props) => {
         </div>
         <div className={blockSlider}>
           <div className={textSlider}></div>
-          <input className={layoutSlider} type="range" min="0.001" defaultValue="0.001" max="50" step="0.001"/>
+          <input className={layoutSlider} onChange={onChange} type="range" min="0.001" defaultValue="0.001" max="50" step="0.001"/>
         </div>
       </Page.Body>
     </Page>
