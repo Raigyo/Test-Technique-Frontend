@@ -78,18 +78,33 @@ export default (props) => {
   	left: '0',
   	right: '0',
   	textAlign: 'center',
-    paddingBottom: '200px'
+    paddingBottom: '15%'
   });
 
   const textSlider = css({
-
+    width: '80px',
+    height: '20px',
+    marginBottom: '10px',
+    marginLeft: 'auto',
+    marginRight: 'auto',
+    borderRadius: '5px',
+    backgroundColor: '#161E21',
+    color: '#FFFFFF',
+    ':after': {
+      content:'',
+      borderLeft:'20px solid transparent',
+      borderRight:'20px solid transparent',
+      borderTop: '20px solid #139ee0',
+      position: 'absolute'
+    },
   });
 
   const layoutSlider = css({
+    //WebkitAppearance: 'none',
     width: '365px',
     height: '8px',
     borderRadius: '5px',
-    background: '#d3d3d3',
+    background: '#d3d3d3'
   });
 
   //Hooks: Similar to componentDidMount and componentDidUpdate
