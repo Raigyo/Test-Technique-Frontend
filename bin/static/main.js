@@ -15731,14 +15731,14 @@ __webpack_require__.r(__webpack_exports__);
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("path", {
     d: "M19.4878 9.23645C21.6672 7.53797 24.3258 6.56851 27.0869 6.46548C29.848 6.36244 32.5715 7.13106 34.8714 8.66239",
     stroke: "white",
-    "stroke-width": "2"
+    "strokeWidth": "2"
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("path", {
     d: "M38.6187 10.8315L31.9747 10.2765L35.7774 4.80004L38.6187 10.8315Z",
     fill: "white"
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("path", {
     d: "M35.6108 30.8737C33.4314 32.5721 30.7728 33.5416 28.0117 33.6446C25.2506 33.7477 22.5271 32.979 20.2272 31.4477",
     stroke: "white",
-    "stroke-width": "2"
+    "strokeWidth": "2"
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("path", {
     d: "M16.1145 29.0011L22.7755 29.2877L19.1967 34.913L16.1145 29.0011Z",
     fill: "white"

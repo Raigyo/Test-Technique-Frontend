@@ -71,26 +71,33 @@ export default (props) => {
   });
   //Slider
   const blockSlider = css({
-    position: 'fixed!important',
-    right: '0',
-    top: '50%',
-    width: '8em',
-    marginTop: '-2.5em'
+    position: 'fixed',
+  	bottom: '0',
+  	left: '0',
+  	right: '0',
+  	textAlign: 'center',
+    paddingBottom: '200px'
   });
+
+  const textSlider = css({
+
+  });
+
   const layoutSlider = css({
-    position: 'relative',
     width: '365px',
     height: '8px',
     borderRadius: '5px',
     background: '#d3d3d3',
-    outline: 'none',
-    opacity: '0.7'
   });
 
   // Hook: Similar to componentDidMount and componentDidUpdate, used to rerender toggle icons
   const [isSelected, setBtnIdRadio] = useState(0);
-  const [btnId1Hover, setBtnIdOver1] = useState(false);
-  const [btnId2Hover, setBtnIdOver2] = useState(false);
+  // Hook: used to rerender hover icons
+  const [btnStopHover, setBtnIdOver1] = useState(false);
+  const [btnHomeHover, setBtnIdOver2] = useState(false);
+
+
+
 
   return (
     <Page>
@@ -111,30 +118,15 @@ export default (props) => {
             <div className={btnArrowsFrameBottom}><div className={btnArrows}><ButtonDown/></div></div>
           </div>
           <div className={blockOtherControls}>
-            {btnId1Hover ? (<div className={btnControl} onMouseLeave={() => setBtnIdOver1(false)}><ButtonStopHover/></div>) : (<div className={btnControl} onClick={() => console.log('!stop!')} onMouseOver={() => setBtnIdOver1(true)}><ButtonStop/></div>)}
-            {btnId2Hover ? (<div className={btnControl, btnControlHome} onMouseLeave={() => setBtnIdOver2(false)}><ButtonStartPositionHover/></div>) : (<div className={btnControl, btnControlHome} onClick={() => console.log('home')} onMouseOver={() => setBtnIdOver2(true)}><ButtonStartPosition/></div>)}
+            {btnStopHover ? (<div className={btnControl}  onClick={() => console.log('!stop!')} onMouseLeave={() => setBtnIdOver1(false)} defaultValue="Stop"><ButtonStopHover/></div>) : (<div className={btnControl} onMouseOver={() => setBtnIdOver1(true)}  defaultValue="Stop"><ButtonStop/></div>)}
+            {btnHomeHover ? (<div className={btnControl, btnControlHome} onClick={() => console.log('home')} onMouseLeave={() => setBtnIdOver2(false)} defaultValue="Home"><ButtonStartPositionHover/></div>) : (<div className={btnControl, btnControlHome} onMouseOver={() => setBtnIdOver2(true)} defaultValue="Home"><ButtonStartPosition/></div>)}
           </div>
         </div>
-        <div className="blockSlider">
-          <input className={layoutSlider} id="layoutSlider" type="range" min="0.001" max="50" value="0.001" />
+        <div className={blockSlider}>
+          <div className={textSlider}></div>
+          <input className={layoutSlider} type="range" min="0.001" defaultValue="0.001" max="50" step="0.001"/>
         </div>
       </Page.Body>
-
-        {/*<Page.Header>
-          Z Axis
-          <Page.LeftButton icon={<Home/>} to='/control'/>
-        </Page.Header>
-        <Page.Body className={styleBody}>
-          <SelectedFast/><ButtonFast/>
-          <SelectedNormal/><ButtonSlow/>
-          <SelectedSlow/><ButtonNormal/>
-          <ButtonUP/>
-          <ButtonDown/>
-          <ButtonStop/>
-          <ButtonStopHover/>
-          <ButtonStartPosition/>
-          <ButtonStartPositionHover/>
-        </Page.Body>*/}
     </Page>
   );
 };
