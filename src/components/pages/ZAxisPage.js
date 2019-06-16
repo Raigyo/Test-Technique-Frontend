@@ -92,13 +92,30 @@ export default (props) => {
 
   // Hook: Similar to componentDidMount and componentDidUpdate, used to rerender toggle icons
   const [isSelected, setBtnIdRadio] = useState(0);
+
   // Hook: used to rerender hover icons
   const [btnStopHover, setBtnIdOver1] = useState(false);
   const [btnHomeHover, setBtnIdOver2] = useState(false);
 
+  const [count, setCount] = useState(0.001);
+
+  //display data (speed+slider value) when we click on arrows
+  const displayData = (ev)  => {
+      //console.log(isSelected);
+      switch(isSelected) {
+        case 1:
+          return console.log("Speed: Fast");
+        case 2:
+          return console.log("Speed: Normal");
+        case 3:
+          return console.log("Speed: Slow");
+        default:
+          return console.log("No speed selected");
+      }
+
+    };
 
   const onChange = (ev)  => {
-      //setText(ev.target.value);
       console.log(ev.target.value);
     };
 
@@ -117,8 +134,8 @@ export default (props) => {
             {isSelected==3 ? (<div className={btnControl}><SelectedSlow/></div>) : (<div className={btnControl} onClick={() => setBtnIdRadio(3)}><ButtonSlow/></div>)}
           </div>
           <div className={blockRotate}>
-            <div className={btnArrowsFrameTop}><div className={btnArrows}><ButtonUP/></div></div>
-            <div className={btnArrowsFrameBottom}><div className={btnArrows}><ButtonDown/></div></div>
+            <div className={btnArrowsFrameTop} onClick={displayData}><div className={btnArrows}><ButtonUP/></div></div>
+            <div className={btnArrowsFrameBottom} onClick={displayData}><div className={btnArrows}><ButtonDown/></div></div>
           </div>
           <div className={blockOtherControls}>
             {btnStopHover ? (<div className={btnControl}  onClick={() => console.log('!stop!')} onMouseLeave={() => setBtnIdOver1(false)} defaultValue="Stop"><ButtonStopHover/></div>) : (<div className={btnControl} onMouseOver={() => setBtnIdOver1(true)}  defaultValue="Stop"><ButtonStop/></div>)}
