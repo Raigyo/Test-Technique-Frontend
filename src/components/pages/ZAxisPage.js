@@ -100,12 +100,37 @@ export default (props) => {
   });
 
   const layoutSlider = css({
-    //WebkitAppearance: 'none',
+    WebkitAppearance: 'none',
+    border: 'none',
+    outline: 'none',
     width: '365px',
     height: '8px',
     borderRadius: '5px',
-    background: '#d3d3d3'
+    background: '#36474F',
+    WebkitSliderThumb: {
+      WebkitAppearance: 'none',
+      appearance: 'none',
+      width: '40px',
+      borderRadius: '50%',
+      background: '#FFFFFF',
+      cursor: 'pointer',
+    },
+    mozRangeThumb: {
+      width: '40px',
+      borderRadius: '50%',
+      background: '#FFFFFF',
+      cursor: 'pointer',
+    },
+    webkitSliderRunnableTrack: {
+      height: '8px',
+      background: '##FCAF00',
+    },
+    mozRangeTrack: {
+      height: '8px',
+      background: '##FCAF00',
+    },
   });
+
 
   //Hooks: Similar to componentDidMount and componentDidUpdate
   //used to rerender toggle icons
@@ -136,6 +161,7 @@ export default (props) => {
     };
 
   return (
+
     <Page>
       <Page.Header>
         Z Axis
