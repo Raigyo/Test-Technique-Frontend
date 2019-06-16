@@ -1,5 +1,15 @@
 # Mango3D Test Technique
 
+*June 2019*
+
+> 🔨 Techical Test: reproduce using React JS an interface for managing 3D printers
+
+
+* * *
+
+OK: functionalities / layout
+KO: vendor prefix for `<input type="range">` do not work with emotion.js using inline css
+
 ## How to run
 
 `npm install`
