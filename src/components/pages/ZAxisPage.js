@@ -90,10 +90,10 @@ export default (props) => {
     background: '#d3d3d3',
   });
 
-  // Hook: Similar to componentDidMount and componentDidUpdate, used to rerender toggle icons
+  //Hooks: Similar to componentDidMount and componentDidUpdate
+  //used to rerender toggle icons
   const [isSelected, setBtnIdRadio] = useState(0);
-
-  // Hook: used to rerender hover icons
+  //used to rerender hover icons
   const [btnStopHover, setBtnIdOver1] = useState(false);
   const [btnHomeHover, setBtnIdOver2] = useState(false);
 
@@ -101,22 +101,21 @@ export default (props) => {
 
   //display data (speed+slider value) when we click on arrows
   const displayData = (ev)  => {
-      //console.log(isSelected);
       switch(isSelected) {
         case 1:
-          return console.log("Speed: Fast");
+          return console.log("Speed: Fast / Slider value: " + count);
         case 2:
-          return console.log("Speed: Normal");
+          return console.log("Speed: Normal / Slider value: " + count);
         case 3:
-          return console.log("Speed: Slow");
+          return console.log("Speed: Slow / Slider value: " + count);
         default:
-          return console.log("No speed selected");
+          return console.log("No speed selected / Slider value: " + count);
       }
-
     };
 
   const onChange = (ev)  => {
-      console.log(ev.target.value);
+      //console.log(ev.target.value);
+      setCount(ev.target.value);
     };
 
   return (
