@@ -9,7 +9,7 @@
 
 OK: functionalities / layout
 
-KO: vendor prefix for `<input type="range">` does not work with emotion.js using inline css
+KO: vendor prefix for `<input type="range">` does not work for color before cursor
 
 ## How to run
 

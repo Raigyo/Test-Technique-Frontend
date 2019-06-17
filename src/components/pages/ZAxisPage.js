@@ -78,13 +78,13 @@ export default (props) => {
   	left: '0',
   	right: '0',
   	textAlign: 'center',
-    paddingBottom: '15%'
+    paddingBottom: '10%'
   });
 
   const textSlider = css({
     width: '80px',
     height: '20px',
-    marginBottom: '10px',
+    marginBottom: '25px',
     marginLeft: 'auto',
     marginRight: 'auto',
     borderRadius: '5px',
@@ -100,37 +100,69 @@ export default (props) => {
   });
 
   const layoutSlider = css({
-    WebkitAppearance: 'none',
-    border: 'none',
-    outline: 'none',
-    width: '365px',
-    height: '8px',
-    borderRadius: '5px',
-    background: '#36474F',
-    WebkitSliderThumb: {
+    input: {
       WebkitAppearance: 'none',
-      appearance: 'none',
-      width: '40px',
-      borderRadius: '50%',
-      background: '#FFFFFF',
-      cursor: 'pointer',
-    },
-    mozRangeThumb: {
-      width: '40px',
-      borderRadius: '50%',
-      background: '#FFFFFF',
-      cursor: 'pointer',
-    },
-    webkitSliderRunnableTrack: {
+      width: '365px',
       height: '8px',
-      background: '##FCAF00',
-    },
-    mozRangeTrack: {
-      height: '8px',
-      background: '##FCAF00',
+      margin: '10px 50px',
+      background: '#37474f',
+      backgroundSize: '365px 8px',
+      backgroundPosition: 'center',
+      backgroundRepeat: 'no-repeat',
+      outline: 'none',
+      display: 'block',
+      margin: 'auto',
+      marginBottom: '30px',
+      borderRadius: '5px',
+      //overflow: 'hidden',
+      "&::-webkit-slider-thumb":{
+        WebkitAppearance: 'none',
+        width: '40px',
+        height: '40px',
+        background: '#FFFFFF',
+        zIndex: '3',
+        borderRadius: '50px',
+        cursor: 'pointer',
+        paddingBottom: '15px'
+      },
+      "&::-webkit-progress-value":{
+        WebkitAppearance: 'none',
+        backgroundColor: 'orange',
+      },
+      "&::-moz-range-thumb": {
+        width: '40px',
+        height: '40px',
+        borderRadius: '50%',
+        background: '#FFFFFF',
+        cursor: 'pointer',
+      },
+      "&::-ms-thumb": {
+        width: '40px',
+        height: '40px',
+        borderRadius: '50%',
+        background: '#FFFFFF',
+        cursor: 'pointer',
+      },
+      "&::-webkit-slider-runnable-track": {
+        border: 'none',
+        borderRadius: '0',
+        backgroundColor: '##FCAF00',
+        background: '##FCAF00',
+      },
+      "&::-webkit-slider-runnable-track": {
+        border: 'none',
+        borderRadius: '0',
+        backgroundColor: '##FCAF00',
+        background: '##FCAF00',
+      },
+      "&::-ms-track": {
+        border: 'none',
+        borderRadius: '0',
+        backgroundColor: '##FCAF00',
+        background: '##FCAF00',
+      },
     },
   });
-
 
   //Hooks: Similar to componentDidMount and componentDidUpdate
   //used to rerender toggle icons
@@ -168,7 +200,7 @@ export default (props) => {
         <Page.LeftButton icon={<Home/>} to='/control'/>
       </Page.Header>
       <Page.Body className={styleBody}>
-          {/*Conditional Ternary Operator Rendering for toggle icons*/}
+        {/*Conditional Ternary Operator Rendering for toggle icons*/}
         <div className={blockCenter}>
           <div className={blockSpeed}>
             {isSelected==1 ? (<div className={btnControl}><SelectedFast/></div>) : (<div className={btnControl} onClick={() => setBtnIdRadio(1)}><ButtonFast/></div>)}
@@ -179,6 +211,7 @@ export default (props) => {
             <div className={btnArrowsFrameTop} onClick={displayData}><div className={btnArrows}><ButtonUP/></div></div>
             <div className={btnArrowsFrameBottom} onClick={displayData}><div className={btnArrows}><ButtonDown/></div></div>
           </div>
+          {/*Conditional Ternary Operator Rendering for hover*/}
           <div className={blockOtherControls}>
             {btnStopHover ? (<div className={btnControl}  onClick={() => console.log('!stop!')} onMouseLeave={() => setBtnIdOver1(false)} defaultValue="Stop"><ButtonStopHover/></div>) : (<div className={btnControl} onMouseOver={() => setBtnIdOver1(true)}  defaultValue="Stop"><ButtonStop/></div>)}
             {btnHomeHover ? (<div className={btnControl, btnControlHome} onClick={() => console.log('home')} onMouseLeave={() => setBtnIdOver2(false)} defaultValue="Home"><ButtonStartPositionHover/></div>) : (<div className={btnControl, btnControlHome} onMouseOver={() => setBtnIdOver2(true)} defaultValue="Home"><ButtonStartPosition/></div>)}
@@ -186,7 +219,7 @@ export default (props) => {
         </div>
         <div className={blockSlider}>
           <div className={textSlider}>{count}</div>
-          <input className={layoutSlider} onChange={onChange} type="range" min="0.001" defaultValue="0.001" max="50" step="0.001"/>
+          <div className={layoutSlider}><input onChange={onChange} type="range" min="0.001" defaultValue="0.001" max="50" step="0.001"/></div>
         </div>
       </Page.Body>
     </Page>
