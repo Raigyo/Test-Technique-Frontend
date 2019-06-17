@@ -78,7 +78,7 @@ export default (props) => {
   	left: '0',
   	right: '0',
   	textAlign: 'center',
-    paddingBottom: '10%'
+    paddingBottom: '2%'
   });
 
   const textSlider = css({
@@ -114,7 +114,6 @@ export default (props) => {
       margin: 'auto',
       marginBottom: '30px',
       borderRadius: '5px',
-      //overflow: 'hidden',
       "&::-webkit-slider-thumb":{
         WebkitAppearance: 'none',
         width: '40px',
@@ -125,41 +124,72 @@ export default (props) => {
         cursor: 'pointer',
         paddingBottom: '15px'
       },
+      "&::-webkit-slider-runnable-track": {
+        border: 'none',
+        borderRadius: '0',
+        backgroundColor: '##FCAF00',
+        background: '##FCAF00'
+      },
       "&::-webkit-progress-value":{
         WebkitAppearance: 'none',
-        backgroundColor: 'orange',
+        backgroundColor: '#FAAE19'
       },
       "&::-moz-range-thumb": {
+        border: '0',
         width: '40px',
         height: '40px',
         borderRadius: '50%',
+        outline: 'none',
         background: '#FFFFFF',
-        cursor: 'pointer',
+        cursor: 'pointer'
+      },
+      "&::-moz-range-track": {
+        border: '0',
+        width: '365px',
+        height: '8px',
+        margin: '10px 50px',
+        background: '#37474f',
+        backgroundSize: '365px 8px',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat',
+        outline: 'none',
+        display: 'block',
+        margin: 'auto',
+        marginBottom: '30px',
+        borderRadius: '5px',
+        backgroundColor: '#37474f'
+      },
+      "&::-moz-range-progress": {
+        border: '0',
+        width: '365px',
+        height: '8px',
+        margin: '10px 50px',
+        background: '#37474f',
+        backgroundSize: '365px 8px',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat',
+        outline: 'none',
+        display: 'block',
+        margin: 'auto',
+        marginBottom: '30px',
+        borderRadius: '5px',
+        backgroundColor: '#FAAE19'
+      },
+      "&::-moz-focus-outer": {
+        border: '0'
       },
       "&::-ms-thumb": {
         width: '40px',
         height: '40px',
         borderRadius: '50%',
         background: '#FFFFFF',
-        cursor: 'pointer',
-      },
-      "&::-webkit-slider-runnable-track": {
-        border: 'none',
-        borderRadius: '0',
-        backgroundColor: '##FCAF00',
-        background: '##FCAF00',
-      },
-      "&::-webkit-slider-runnable-track": {
-        border: 'none',
-        borderRadius: '0',
-        backgroundColor: '##FCAF00',
-        background: '##FCAF00',
+        cursor: 'pointer'
       },
       "&::-ms-track": {
         border: 'none',
         borderRadius: '0',
-        backgroundColor: '##FCAF00',
-        background: '##FCAF00',
+        backgroundColor: '#FAAE19',
+        background: '#FCAF00'
       },
     },
   });
