@@ -9,7 +9,7 @@
 
 OK: functionalities / layout
 
-Not solved: `webkit-slider-runnable-track` and `webkit-progress-value` do not work (for colour before pointer) on chrome (maybe it could be solved with a box-shadow).
+Not solved: `webkit-slider-runnable-track` and `webkit-progress-value` do not work (for colour before pointer) on chrome (maybe it could be solved with a `box-shadow`).
 
 ## How to run
 
