@@ -9,7 +9,7 @@
 
 OK: functionalities / layout
 
-KO: vendor prefix for `<input type="range">` does not work for color before cursor on chrome
+Not solved: `webkit-slider-runnable-track` and `webkit-progress-value` do not work (for color before pointer) on chrome (maybe it could be solved with a box-shadow).
 
 ## How to run
 

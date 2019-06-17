@@ -80,32 +80,35 @@ export default (props) => {
   	textAlign: 'center',
     paddingBottom: '2%'
   });
-
   const textSlider = css({
-    width: '80px',
+    width: '100px',
     height: '20px',
     marginBottom: '25px',
     marginLeft: 'auto',
     marginRight: 'auto',
     borderRadius: '5px',
+    verticalAlign: 'center',
     backgroundColor: '#161E21',
+    position: 'relative',
     color: '#FFFFFF',
-    ':after': {
-      content:'',
-      borderLeft:'20px solid transparent',
-      borderRight:'20px solid transparent',
-      borderTop: '20px solid #139ee0',
-      position: 'absolute'
+    '&::after': {
+      content:'" "',
+      borderLeft:'5px solid transparent',
+      borderRight:'5px solid transparent',
+      borderTop: '5px solid #161E21',
+      position: 'absolute',
+      top: '20px',
+      left: '45px'
     },
   });
-
   const layoutSlider = css({
     input: {
       WebkitAppearance: 'none',
       width: '365px',
       height: '8px',
       margin: '10px 50px',
-      background: '#37474f',
+      //background: '#37474f',
+      backgroundColor:'#37474f',
       backgroundSize: '365px 8px',
       backgroundPosition: 'center',
       backgroundRepeat: 'no-repeat',
@@ -114,6 +117,10 @@ export default (props) => {
       margin: 'auto',
       marginBottom: '30px',
       borderRadius: '5px',
+      "focus": {
+        boxShadow: 'none',
+        outline: 'none'
+      },
       "&::-webkit-slider-thumb":{
         WebkitAppearance: 'none',
         width: '40px',
@@ -124,11 +131,11 @@ export default (props) => {
         cursor: 'pointer',
         paddingBottom: '15px'
       },
+
       "&::-webkit-slider-runnable-track": {
+        WebkitAppearance: 'none',
         border: 'none',
-        borderRadius: '0',
-        backgroundColor: '##FCAF00',
-        background: '##FCAF00'
+        background: 'transparent'
       },
       "&::-webkit-progress-value":{
         WebkitAppearance: 'none',
@@ -193,7 +200,6 @@ export default (props) => {
       },
     },
   });
-
   //Hooks: Similar to componentDidMount and componentDidUpdate
   //used to rerender toggle icons
   const [isSelected, setBtnIdRadio] = useState(0);
@@ -248,7 +254,7 @@ export default (props) => {
           </div>
         </div>
         <div className={blockSlider}>
-          <div className={textSlider}>{count}</div>
+          <div className={textSlider}>{count}mm</div>
           <div className={layoutSlider}><input onChange={onChange} type="range" min="0.001" defaultValue="0.001" max="50" step="0.001"/></div>
         </div>
       </Page.Body>
