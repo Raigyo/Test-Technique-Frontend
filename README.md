@@ -9,7 +9,7 @@
 
 OK: functionalities / layout
 
-KO: vendor prefix for `<input type="range">` does not work for color before cursor
+KO: vendor prefix for `<input type="range">` does not work for color before cursor on chrome
 
 ## How to run
 
